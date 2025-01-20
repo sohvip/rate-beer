@@ -11,6 +11,13 @@
 <div id="beers">
   <% @beers.each do |beer| %>
     <%= render beer %>
+    <% if beer.ratings.empty? %>
+      beer has not yet been rated!
+    <% else %>
+      <p>
+        Beer has <%= beer.ratings.count %> ratings with an average rating of <%= beer.average_rating %>
+      </p>
+    <% end %>
   <% end %>
 </div>
 

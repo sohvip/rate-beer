@@ -1,0 +1,13 @@
+b = Brewery.create name: "BrewDog", year: 2007
+
+b1 = b.beers.create name: "Punk IPA", style: "IPA"
+
+b2 = b.beers.create name: "Nanny State", style: "lowalcohol"
+
+b1.ratings.create score: 20
+
+b1.ratings.create score: 23
+
+b2.ratings.create score: 10
+
+b2.ratings.create score: 5
