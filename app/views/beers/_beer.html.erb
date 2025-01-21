@@ -14,4 +14,11 @@
     <%= link_to beer.brewery.name, beer.brewery %>
   </p>
 
+  <% if beer.ratings.empty? %>
+    beer has not yet been rated!
+  <% else %>
+    <p>
+      Beer has <%= pluralize(beer.ratings.count, "rating") %> with an average rating of <%= beer.average_rating %>
+    </p>
+  <% end %>
 </div>
