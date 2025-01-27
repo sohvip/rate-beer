@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :users
   resources :beers
   resources :breweries
   resources :ratings, only: [ :index, :new, :create, :destroy ]
@@ -14,6 +15,7 @@ Rails.application.routes.draw do
   get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
+  get "signup", to: "users#new"
   # Defines the root path route ("/")
   # root "posts#index"
 end
