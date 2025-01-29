@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
   get "signup", to: "users#new"
+  get "signin", to: "sessions#new"
+  delete "signout", to: "sessions#destroy"
   # Defines the root path route ("/")
   # root "posts#index"
 end
