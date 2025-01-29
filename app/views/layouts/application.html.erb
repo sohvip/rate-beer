@@ -33,9 +33,6 @@
         <%= link_to "sign in", new_session_path %>
       <% end %>
     </div>
-    <% if current_user %>
-      <p><%= current_user.username %> signed in</p>
-    <% end %>
     <%= yield %>
   </body>
 </html>
