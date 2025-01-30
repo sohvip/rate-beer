@@ -8,10 +8,10 @@
 </p>
 
 <ul>
-    <% @ratings.each do |rating| %>
-        <li>
-          <%= rating.to_s %>
-          <%= button_to "Delete", rating_path(rating.id), method: :delete, form: { data: { turbo_confirm: "Delete rating" } } %>
-        </li>
-    <% end %>
+  <% @ratings.each do |rating| %>
+    <li>
+      <%= rating.to_s %>
+      <%= link_to rating.user.username, rating.user %>
+    </li>
+  <% end %>
 </ul>
