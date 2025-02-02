@@ -53,6 +53,7 @@ class UsersController < ApplicationController
   def destroy
     return unless @user == current_user
 
+    @user.destroy!
     respond_to do |format|
       format.html { redirect_to users_path, status: :see_other, notice: "User was successfully destroyed." }
       format.json { head :no_content }
