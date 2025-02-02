@@ -14,12 +14,16 @@
 </div>
 <div>
   <h3>Ratings</h3>
-  <% @user.ratings.each do |r| %>
-    <li>
-      <%= "#{r.beer.name} #{r.score}" %>
-      <%= link_to "Delete", r, data: { "turbo_method": :delete } %>
-    </li>
-  <% end %>
+  <ul>
+    <% @user.ratings.each do |r| %>
+      <li>
+        <%= "#{r.beer.name} #{r.score}" %>
+        <% if @user == current_user %>
+          <%= link_to "Delete", r, data: { "turbo_method": :delete } %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
 </div>
 <div>
   <%= link_to "Edit this user", edit_user_path(@user) %> |
