@@ -54,6 +54,7 @@ class UsersController < ApplicationController
     return unless @user == current_user
 
     @user.destroy!
+    reset_session
     respond_to do |format|
       format.html { redirect_to users_path, status: :see_other, notice: "User was successfully destroyed." }
       format.json { head :no_content }
