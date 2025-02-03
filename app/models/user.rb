@@ -10,6 +10,6 @@ class User < ApplicationRecord
                        format: { with: /(?=.*\d)(?=.*[A-Z])/,
                                  message: "must contain at least one digit and one upper case letter!" }
 
-  has_many :ratings
+  has_many :ratings, dependent: :destroy
   has_many :beers, through: :ratings
 end
