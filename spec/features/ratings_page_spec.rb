@@ -36,4 +36,16 @@ describe "Rating" do
     expect(page).to have_content "Iso 3: 10"
     expect(page).to have_content "Karhu: 10"
   end
+
+  it "is shown on the user's page" do
+    FactoryBot.create :rating, beer: beer1, user: user
+    user2 = FactoryBot.create :user, username: "Mikko", password: "Moobar1", password_confirmation: "Moobar1"
+    FactoryBot.create :rating, beer: beer2, user: user2
+
+    visit user_path(user)
+
+    expect(page).not_to have_content "Karhu 10"
+    expect(page).to have_content "Iso 3 10"
+    expect(Rating.count).to eq(2)
+  end
 end
