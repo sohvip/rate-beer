@@ -48,4 +48,16 @@ describe "Rating" do
     expect(page).to have_content "Iso 3 10"
     expect(Rating.count).to eq(2)
   end
+
+  it "is deleted from the database when user deletes it" do
+    FactoryBot.create :rating, beer: beer1, user: user
+    FactoryBot.create :rating, beer: beer2, user: user
+
+    visit user_path(user)
+
+    find(:xpath, "(//a[text()='Delete'])[2]").click
+    expect(page).not_to have_content "Karhu 10"
+    expect(page).to have_content "Iso 3 10"
+    expect(Rating.count).to eq(1)
+  end
 end
