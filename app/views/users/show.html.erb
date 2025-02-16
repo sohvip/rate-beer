@@ -42,6 +42,12 @@
   </p>
 </div>
 <div>
+  <h3>Favorite Brewery</h3>
+  <p>
+    <%= @user&.favorite_brewery || "No favorite brewery yet" %>
+  </p>
+</div>
+<div>
   <% if @user == current_user %>
     <%= link_to "Edit this user", edit_user_path(@user) %>
     <%= button_to "Destroy this user", @user, method: :delete %>

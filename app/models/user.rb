@@ -26,12 +26,24 @@ class User < ApplicationRecord
 
     styles = ratings.map(&:beer).group_by(&:style)
 
-    # Calculate average rating per style
     style_averages = styles.transform_values do |beers|
       beers.map(&:average_rating).sum / beers.size.to_f
     end
 
-    # Return the style with the highest average rating
     style_averages.max_by { |_, avg| avg }&.first
+  end
+
+  def favorite_brewery
+    return nil if ratings.empty?
+
+    breweries = ratings.map(&:beer).group_by(&:brewery)
+
+    # Calculate average rating per style
+    brewery_averages = breweries.transform_values do |beers|
+      beers.map(&:average_rating).sum / beers.size.to_f
+    end
+
+    # Return the style with the highest average rating
+    brewery_averages.max_by { |_, avg| avg }&.first&.name
   end
 end
