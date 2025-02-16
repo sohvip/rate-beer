@@ -36,6 +36,12 @@
   </ul>
 </div>
 <div>
+  <h3>Favorite Style</h3>
+  <p>
+    <%= @user&.favorite_style || "No favorite style yet" %>
+  </p>
+</div>
+<div>
   <% if @user == current_user %>
     <%= link_to "Edit this user", edit_user_path(@user) %>
     <%= button_to "Destroy this user", @user, method: :delete %>
