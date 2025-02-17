@@ -76,5 +76,4 @@ class BeersController < ApplicationController
     @breweries = Brewery.all
     @styles = ["Weizen", "Lager", "Pale ale", "IPA", "Porter", "Lowalcohol"]
   end
-
 end
