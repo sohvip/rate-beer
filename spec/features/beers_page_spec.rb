@@ -2,13 +2,15 @@ require "rails_helper"
 
 describe "Beer" do
   let!(:brewery) { FactoryBot.create :brewery, name: "Koff" }
+  let!(:user) { FactoryBot.create :user }
 
   before :each do
-    visit beers_path
+    sign_in(username: "Pekka", password: "Foobar1")
+    click_link("beers")
   end
 
   it "is created with a valid name" do
-    click_link("New beer")
+    click_link("New Beer")
     fill_in("beer_name", with: "Karhu")
 
     expect{
@@ -17,7 +19,7 @@ describe "Beer" do
   end
 
   it "is not created without a name" do
-    click_link("New beer")
+    click_link("New Beer")
     click_button("Create Beer")
 
     expect(page).to have_content "Name can't be blank"
