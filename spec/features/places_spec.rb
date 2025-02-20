@@ -28,6 +28,10 @@ describe "Places" do
   end
 
   it "if none is returned by the API, page tells that no locations were found" do
+    allow(BeermappingApi).to receive(:places_in).with("vallila").and_return(
+      []
+    )
+
     visit places_path
     fill_in('city', with: 'vallila')
     click_button "Search"
