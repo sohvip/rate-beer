@@ -41,16 +41,16 @@
         "lines": [
           1,
           1,
-          1,
+          3,
           null,
-          1,
-          1,
+          3,
+          3,
           null,
-          1,
+          3,
           null,
-          0,
-          0,
-          0,
+          2,
+          2,
+          3,
           null,
           null,
           null
@@ -59,42 +59,6 @@
       "/home/psohvi/ratebeer/app/models/place.rb": {
         "lines": [
           1,
-          1,
-          6,
-          null,
-          null
-        ]
-      },
-      "/home/psohvi/ratebeer/app/controllers/places_controller.rb": {
-        "lines": [
-          1,
-          1,
-          null,
-          null,
-          1,
-          3,
-          3,
-          1,
-          null,
-          2,
-          null,
-          null,
-          null
-        ]
-      },
-      "/home/psohvi/ratebeer/app/controllers/application_controller.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          null,
-          1,
-          6,
-          null,
-          0,
-          null,
-          null,
           1,
           0,
           null,
@@ -112,6 +76,26 @@
       },
       "/home/psohvi/ratebeer/app/channels/application_cable/connection.rb": {
         "lines": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {}
+      },
+      "/home/psohvi/ratebeer/app/controllers/application_controller.rb": {
+        "lines": [
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
           0,
           0,
           0,
@@ -429,6 +413,24 @@
           0,
           null,
           null,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {}
+      },
+      "/home/psohvi/ratebeer/app/controllers/places_controller.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
           0,
           0,
           0,
@@ -756,6 +758,6 @@
         "branches": {}
       }
     },
-    "timestamp": 1739972911
+    "timestamp": 1740057433
   }
 }
