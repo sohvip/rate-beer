@@ -56,7 +56,7 @@ class MembershipsController < ApplicationController
     if @membership
       user_id = @membership.user_id
       @membership.destroy!
-      redirect_to user_path(user_id), status: :see_other, notice: "Membership was successfully destroyed."
+      redirect_to user_path(user_id), status: :see_other, notice: "Membership in #{BeerClub.find(params[:beer_club_id]).name} ended."
     else
       redirect_to beer_club_path(params[:membership][:beer_club_id]), alert: "Membership not found."
     end
