@@ -1,0 +1,22 @@
+<div>
+  <b>Name:</b>
+  <%= @style.name %>
+</div>
+<div>
+  <b>Description:</b>
+  <%= @style.description %>
+</div>
+<div>
+  <b>Beers:</b>
+  <ul>
+    <% @style.beers.each do |beer| %>
+    <li><%= beer.name %></li>
+    <% end %>
+  </ul>
+</div>
+<div>
+  <%= link_to "Edit this style", edit_style_path(@style) if current_user %> |
+  <%= link_to "Back to styles", styles_path %>
+
+  <%= button_to "Destroy this style", @style, method: :delete if current_user %>
+</div>
