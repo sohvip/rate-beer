@@ -51,11 +51,14 @@ class MembershipsController < ApplicationController
 
   # DELETE /memberships/1 or /memberships/1.json
   def destroy
-    @membership.destroy!
+    @membership = Membership.find_by(beer_club_id: params[:beer_club_id], user_id: params[:user_id])
 
-    respond_to do |format|
-      format.html { redirect_to memberships_path, status: :see_other, notice: "Membership was successfully destroyed." }
-      format.json { head :no_content }
+    if @membership
+      user_id = @membership.user_id
+      @membership.destroy!
+      redirect_to user_path(user_id), status: :see_other, notice: "Membership was successfully destroyed."
+    else
+      redirect_to beer_club_path(params[:membership][:beer_club_id]), alert: "Membership not found."
     end
   end
 
@@ -68,6 +71,6 @@ class MembershipsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def membership_params
-    params.require(:membership).permit(:beer_club_id, :user_id)
+    params.require(:membership).permit(:beer_club_id, :user_id, :id)
   end
 end
