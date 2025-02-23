@@ -8,6 +8,13 @@
 <% end %>
 
 <% if @places %>
+  <div>
+    <h4><%= "The current beer weather in #{@weather["location"]["name"]}" %></h4>
+    <p><%= "#{@weather["current"]["temperature"]} Celsius" %></p>
+    <img src="<%= @weather["current"]["weather_icons"].first %>" alt="Weather Image"><br>
+
+    <p><b>wind</b> <%= "#{@weather["current"]["wind_speed"]}, direction: #{@weather["current"]["wind_dir"].first}" %></p>
+  </div>
   <table>
     <thead>
       <th>id</th>

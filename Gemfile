@@ -18,6 +18,8 @@ gem "jbuilder"
 # gem "redis", ">= 4.0.1"
 # Use HTTParty to make HTTP requests
 gem "httparty"
+# Use dotenv to manage api keys
+gem "dotenv-rails"
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
