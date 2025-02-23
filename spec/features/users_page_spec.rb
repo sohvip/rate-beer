@@ -46,12 +46,13 @@ describe "User" do
 
     it "are shown if ratings exist" do
       brewery = FactoryBot.create :brewery
-      beer = FactoryBot.create :beer, name: "Kalja", style: "IPA", brewery: brewery
+      style = FactoryBot.create :style
+      beer = FactoryBot.create :beer, name: "Kalja", style: style, brewery: brewery
       FactoryBot.create :rating, beer: beer, user: @user
 
       visit user_path(@user)
 
-      expect(page).to have_content beer.style
+      expect(page).to have_content beer.style.name
       expect(page).to have_content brewery.name
     end
   end

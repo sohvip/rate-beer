@@ -30,7 +30,7 @@ class User < ApplicationRecord
       beers.map(&:average_rating).sum / beers.size.to_f
     end
 
-    style_averages.max_by { |_, avg| avg }&.first
+    style_averages.max_by { |_, avg| avg }&.first.name
   end
 
   def favorite_brewery
