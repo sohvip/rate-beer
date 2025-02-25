@@ -1,25 +1,21 @@
 <div id="<%= dom_id brewery %>">
-  <h2>
-    <strong>Name:</strong>
+  <h1>
     <%= brewery.name %>
-  </h2>
+  </h1>
 
   <i>
     Established in
     <%= brewery.year %>
   </i>
+  <br><br>
 
-  <p>
-    Number of beer types:
-    <%= @brewery.beers.count %>
-  </p>
-
-  <p>
+  <ul class="list-group">
+    <li class="list-group-item"><strong>Beer Types</strong></li>
     <% brewery.beers.each do |beer| %>
-      <%= link_to beer.name, beer %>
+      <li class="list-group-item"><%= link_to beer.name, beer %></li>
     <% end %>
-  </p>
-
+  </ul>
+  <br>
   <p>
     Brewery has
     <%= pluralize(brewery.ratings.count, "rating") %>

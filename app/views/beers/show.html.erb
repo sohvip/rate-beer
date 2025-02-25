@@ -1,14 +1,29 @@
 <p style="color: green"><%= notice %></p>
+<h1><%= @beer.name %></h1>
+<table class="table table-striped table-hover">
+  <tr>
+    <th>Style</th>
+    <th>Brewery</th>
+  </tr>
+  <tr>
+    <td>
+      <%= link_to @beer.style.name, @beer.style %>
+    </td>
 
-<%= render @beer %>
+    <td>
+      <%= link_to @beer.brewery.name, @beer.brewery %>
+    </td>
+  </tr>
+</table>
 
 <% if current_user %>
-  <h4>give a rating:</h4>
+  <h4>Give a rating:</h4>
 
   <%= form_with(model: @rating) do |form| %>
     <%= form.hidden_field :beer_id %>
-    score: <%= form.number_field :score %>
-    <%= form.submit "Create rating" %>
+    <%= form.label :score, class: "form-label" %>
+    <%= form.number_field :score, class: "form-control" %>
+    <%= form.submit "Create rating", class: "btn btn-primary" %>
   <% end %>
 
   <div>

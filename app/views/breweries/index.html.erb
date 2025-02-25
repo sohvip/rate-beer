@@ -2,20 +2,23 @@
 
 <p>Number of breweries: <%= @breweries.count %></p>
 
-<div id="breweries">
+<table class="table table-striped table-hover">
+  <tr>
+    <th>Brewery</th>
+    <th>Year</th>
+  </tr>
   <% @breweries.each do |brewery| %>
-    <div id="<%= dom_id brewery %>">
-      <p>
+    <tr>
+      <td>
         <%= link_to brewery.name, brewery %>
-      </p>
+      </td>
 
-      <p>
-        <strong>Year:</strong>
+      <td>
         <%= brewery.year %>
-      </p>
+      </td>
 
-    </div>
+    </tr>
   <% end %>
-</div>
+</table>
 
 <%= link_to "New brewery", new_brewery_path, class:'btn btn-primary' if current_user%>
