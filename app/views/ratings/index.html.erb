@@ -11,7 +11,7 @@
         <% @top_beers.each do |beer| %>
           <tr>
             <td><%= beer.name %></td>
-            <td><%= beer.average_rating %></td>
+            <td><%= round(beer.average_rating) %></td>
           </tr>
         <% end %>
       </table>
@@ -26,7 +26,7 @@
       <% @top_breweries.each do |brewery| %>
         <tr>
           <td><%= brewery.name %></td>
-          <td><%= brewery.average_rating %></td>
+          <td><%= round(brewery.average_rating) %></td>
         </tr>
       <% end %>
     </table>
@@ -41,7 +41,7 @@
       <% @top_styles.each do |style| %>
         <tr>
           <td><%= style.name %></td>
-          <td><%= style.average_rating_for_style %></td>
+          <td><%= round(style.average_rating_for_style) %></td>
         </tr>
       <% end %>
     </table>
