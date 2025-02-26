@@ -9,10 +9,11 @@ class Brewery < ApplicationRecord
   has_many :beers, dependent: :destroy
   has_many :ratings, through: :beers
 
-  def print_report
-    puts name
-    puts "established at year #{year}"
-    puts "number of beers #{beers.count}"
+  scope :active, -> { where(active: true) }
+  scope :retired, -> { where(active: [nil, false]) }
+
+  def self.top(num)
+    Brewery.all.sort_by(&:average_rating).reverse.first(num)
   end
 
   def restart

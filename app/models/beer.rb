@@ -9,6 +9,10 @@ class Beer < ApplicationRecord
   has_many :ratings, dependent: :destroy
   has_many :raters, -> { distinct }, through: :ratings, source: :user
 
+  def self.top(num)
+    Beer.all.sort_by(&:average_rating).reverse.first(num)
+  end
+
   def to_s
     "#{name}, #{brewery.name}"
   end
