@@ -1,40 +1,59 @@
 <h1>Ratings</h1>
 
 <div class="row">
-    <div class="col-sm-4">
-      <h2>Best Beers</h2>
-        <table class="table table-hover">
-          <tr>
-            <th>Beer</th>
-            <th>Average</th>
-          </tr>
-          <% @top_beers.each do |beer| %>
-            <tr>
-              <td><%= beer.name %></td>
-              <td><%= beer.average_rating %></td>
-            </tr>
-          <% end %>
-        </table>
-    </div>
-    <div class="col-sm-4">
-      <h2>Best Breweries</h2>
+  <div class="col-sm-4">
+    <h2>Best Beers</h2>
       <table class="table table-hover">
         <tr>
-          <th>Brewery</th>
+          <th>Beer</th>
           <th>Average</th>
         </tr>
-        <% @top_breweries.each do |brewery| %>
+        <% @top_beers.each do |beer| %>
           <tr>
-            <td><%= brewery.name %></td>
-            <td><%= brewery.average_rating %></td>
+            <td><%= beer.name %></td>
+            <td><%= beer.average_rating %></td>
           </tr>
         <% end %>
       </table>
-    </div>
+  </div>
+  <div class="col-sm-4">
+    <h2>Best Breweries</h2>
+    <table class="table table-hover">
+      <tr>
+        <th>Brewery</th>
+        <th>Average</th>
+      </tr>
+      <% @top_breweries.each do |brewery| %>
+        <tr>
+          <td><%= brewery.name %></td>
+          <td><%= brewery.average_rating %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+  <div class="col-sm-4">
+    <h2>Best Styles</h2>
+    <table class="table table-hover">
+      <tr>
+        <th>Style</th>
+        <th>Average</th>
+      </tr>
+      <% @top_styles.each do |style| %>
+        <tr>
+          <td><%= style.name %></td>
+          <td><%= style.average_rating_for_style %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
 </div>
 
 <h2>Most Active Users</h2>
-<p>tbd</p>
+<ol>
+  <% @top_users.each do |user| %>
+    <li><%= user.username %> <%= user.ratings.count %> ratings</li>
+  <% end %>
+</ol>
 
 <h2>Recent Ratings</h2>
 <ul>

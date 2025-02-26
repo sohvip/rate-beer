@@ -15,6 +15,10 @@ class User < ApplicationRecord
   has_many :memberships, dependent: :destroy
   has_many :beer_clubs, through: :memberships
 
+  def self.top(num)
+    User.all.sort_by { |user| user.ratings.count }.reverse.first(num)
+  end
+
   def favorite_beer
     return nil if ratings.empty?
 
