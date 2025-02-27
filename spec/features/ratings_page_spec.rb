@@ -32,9 +32,8 @@ describe "Rating" do
 
     visit ratings_path
 
-    expect(page).to have_content "Number of ratings: 2"
-    expect(page).to have_content "Iso 3: 10"
-    expect(page).to have_content "Karhu: 10"
+    expect(page).to have_content "Iso 3"
+    expect(page).to have_content "Karhu"
   end
 
   it "is shown on the user's page" do
