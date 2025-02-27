@@ -1,6 +1,8 @@
 <div>
-  <h3>Username:</h3>
-  <%= @user.username %>
+  <h1><%= @user.username %></h1>
+  <% if @user.closed %>
+    <span class="badge bg-danger">Closed</span>
+  <% end %>
   <p>
     Has made
     <%= pluralize(@user.ratings.count, "rating") %>
@@ -9,6 +11,9 @@
       <%= round(@user.average_rating) %>
     <% end %>
   </p>
+</div>
+<div>
+  <%= button_to "Change account status", close_user_path(@user), method: :patch, class:"btn btn-danger" %>
 </div>
 <div>
   <h3>Member of</h3>

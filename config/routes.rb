@@ -29,6 +29,12 @@ Rails.application.routes.draw do
   resources :breweries do
     post 'toggle_activity', on: :member
   end
+
+  resources :users do
+    member do
+      patch :close
+    end
+  end
   # Defines the root path route ("/")
   # root "posts#index"
 end

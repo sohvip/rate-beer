@@ -4,10 +4,18 @@
 
 <div id="users">
   <% @users.each do |user| %>
-    <%= render user %>
-    <p>
+    <% unless user.closed %>
+      <%= render user %>
       <%= link_to "Show this user", user %>
-    </p>
+      <br><br>
+    <% else %>
+      <% if current_user.admin %>
+        <%= render user %>
+        <span class="badge bg-danger">Closed</span><br>
+        <%= link_to "Show this user", user %>
+        <br><br>
+      <% end %>
+    <% end %>
   <% end %>
 </div>
 
