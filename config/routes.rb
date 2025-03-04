@@ -30,6 +30,10 @@ Rails.application.routes.draw do
     post 'toggle_activity', on: :member
   end
 
+  get "beerlist", to: "beers#list"
+
+  get "brewerylist", to: "breweries#list"
+
   resources :users do
     member do
       patch :close
