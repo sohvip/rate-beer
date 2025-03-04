@@ -13,18 +13,9 @@
   </thead>
   <% @beers.each do |beer| %>
     <tr>
-      <td>
-        <%= link_to beer.name, beer %>
-      </td>
-
-      <td>
-        <%= link_to beer.style.name, beer.style %>
-      </td>
-
-      <td>
-        <%= link_to beer.brewery.name, beer.brewery %>
-      </td>
-
+      <td><%= link_to beer.name, beer %></td>
+      <td><%= link_to beer.style.name, beer.style %></td>
+      <td><%= link_to beer.brewery.name, beer.brewery %></td>
       <td>
         <% if beer.ratings.empty? %>
           0.0

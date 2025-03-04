@@ -4,19 +4,15 @@
 
 <div id="users">
   <% @users.each do |user| %>
-    <% unless user.closed %>
-      <%= render user %>
-      <%= link_to "Show this user", user %>
-      <br><br>
-    <% else %>
-      <% if current_user.admin %>
-        <%= render user %>
-        <span class="badge bg-danger">Closed</span><br>
-        <%= link_to "Show this user", user %>
-        <br><br>
+    <p>
+      <%= link_to(user.username, user) %>
+      <p>Has made <%= "#{user.ratings.size}"%> ratings, average rating <%= "#{user.average_rating}" %></p>
+      <% if user.closed? %>
+        <span class="badge text-bg-danger">account closed</span>
       <% end %>
-    <% end %>
+    </p>
   <% end %>
 </div>
+
 
 <%= link_to "New user", new_user_path, class:"btn btn-primary" %>

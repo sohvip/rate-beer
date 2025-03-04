@@ -2,9 +2,11 @@ module RatingAverage
   extend ActiveSupport::Concern
 
   def average_rating
-    return 0 if ratings.empty?
+    rating_count = ratings.size
 
-    ratings.inject(0) { |sum, r| sum + r.score.to_f } / ratings.size
+    return 0 if rating_count == 0
+
+    ratings.map(&:score).sum / rating_count
   end
 
   def average_rating_for_style

@@ -57,6 +57,8 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+  # Use Miniprofile to explore logs
+  gem "rack-mini-profiler", require: true
 end
 
 group :test do
