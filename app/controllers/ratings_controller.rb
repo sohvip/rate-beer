@@ -14,6 +14,7 @@ class RatingsController < ApplicationController
   end
 
   def create
+    expire_fragment('brewerylist')
     @rating = Rating.new params.require(:rating).permit(:score, :beer_id)
     @rating.user = current_user
 
@@ -26,6 +27,7 @@ class RatingsController < ApplicationController
   end
 
   def destroy
+    expire_fragment('brewerylist')
     rating = Rating.find params[:id]
     rating.delete if current_user == rating.user
     redirect_to request.referer || ratings_path

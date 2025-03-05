@@ -2,6 +2,7 @@ class BreweriesController < ApplicationController
   before_action :ensure_that_signed_in, except: [:index, :show, :list]
   before_action :ensure_that_admin, only: [:destroy]
   before_action :set_brewery, only: %i[show edit update destroy]
+  before_action :expire_frag, only: [:create, :update, :destroy]
 
   # GET /breweries or /breweries.json
   def index
@@ -74,5 +75,9 @@ class BreweriesController < ApplicationController
   # Only allow a list of trusted parameters through.
   def brewery_params
     params.require(:brewery).permit(:name, :year, :active)
+  end
+
+  def expire_frag
+    expire_fragment('brewerylist')
   end
 end
