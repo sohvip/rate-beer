@@ -16,6 +16,8 @@ gem "stimulus-rails"
 gem "jbuilder"
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
+# Use Sucker Punch for asynchronous processing
+gem "sucker_punch", "~> 3.0"
 # Use HTTParty to make HTTP requests
 gem "httparty"
 # Use dotenv to manage api keys
