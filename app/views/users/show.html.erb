@@ -27,16 +27,23 @@
 </div>
 <div>
   <h3>Ratings</h3>
-  <ul>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Beer</th>
+        <th>Score</th>
+      </tr>
+    </thead>
     <% @user.ratings.each do |r| %>
-      <li>
-        <%= "#{r.beer.name} #{r.score}" %>
+      <tr>
+        <td><%= r.beer.name %></td>
+        <td><%= r.score %></td>
         <% if @user == current_user %>
-          <%= link_to "Delete", r, data: { "turbo_method": :delete } %>
+          <td><%= link_to "Delete", r, data: { "turbo_method": :delete } %></td>
         <% end %>
-      </li>
+      </tr>
     <% end %>
-  </ul>
+  </table>
 </div>
 <div>
   <h3>Favorite Style</h3>

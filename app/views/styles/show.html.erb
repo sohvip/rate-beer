@@ -1,18 +1,19 @@
-<div>
-  <b>Name:</b>
-  <%= @style.name %>
-</div>
+<h1><%= @style.name %></h1>
+<br>
 <div>
   <b>Description:</b>
   <%= @style.description %>
 </div>
+<br>
+<h3>Beers</h3>
 <div>
-  <b>Beers:</b>
-  <ul>
+  <table class="table table-striped table-hover">
     <% @style.beers.each do |beer| %>
-    <li><%= beer.name %></li>
+      <tr>
+        <td><%= link_to beer.name, beer %></td>
+      </tr>
     <% end %>
-  </ul>
+  </table>
 </div>
 <div>
   <%= edit_and_destroy_buttons(@style) %>

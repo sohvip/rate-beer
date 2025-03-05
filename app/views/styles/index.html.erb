@@ -1,8 +1,8 @@
 <h1>Beer Styles</h1>
-<ul>
+<table class="table table-striped table-hover">
   <% @styles.each do |style| %>
-    <li>
-      <%= link_to style.name, style_path(style) %>
-    </li>
+    <tr>
+        <td><%= link_to style.name, style_path(style) %></td>
+    </tr>
   <% end %>
-</ul>
+</table>

@@ -1,31 +1,47 @@
-<%= render @beer_club %>
+<h1><%= @beer_club.name %></h1>
+<br>
+<p>
+  <strong>Founded:</strong>
+  <%= @beer_club.founded %>
+</p>
+<p>
+  <strong>City:</strong>
+  <%= @beer_club.city %>
+</p>
 
 <div>
   <h3>Members</h3>
-  <% @beer_club.members.each do |member| %>
-    <%= link_to member.username, member %>
-  <% end %>
+  <table class="table table-striped table-hover">
+    <% @beer_club.members.each do |member| %>
+      <tr>
+        <td><%= link_to member.username, member %></td>
+      </tr>
+    <% end %>
+  </table>
 </div>
 
 <% if current_user && !current_user.memberships.exists?(beer_club_id: @beer_club.id) %>
   <%= form_with(model: @membership) do |form| %>
     <%= form.hidden_field :beer_club_id, value: @beer_club.id %>
     <%= form.hidden_field :user_id, value: current_user.id %>
-    <%= form.submit "Join the beer club" %>
+    <%= form.submit "Join the beer club", class:'btn btn-primary' %>
   <% end %>
 <% end %>
+<br>
 <% if current_user && current_user.memberships.exists?(beer_club_id: @beer_club.id) %>
   <% membership = current_user.memberships.find_by(beer_club_id: @beer_club.id) %>
   <%= form_with(url: membership_path(membership), method: :delete) do |form| %>
     <%= form.hidden_field :beer_club_id, value: @beer_club.id %>
     <%= form.hidden_field :user_id, value: current_user.id %>
-    <%= form.submit "End the membership" %>
+    <%= form.submit "End the membership", class:'btn btn-danger' %>
   <% end %>
+  <br>
 <% end %>
 
 <div>
   <% if current_user %>
     <%= edit_and_destroy_buttons(@beer_club) %>
   <% end %>
+  <br><br>
   <%= link_to "Back to beer clubs", beer_clubs_path, class:"btn btn-primary" %>
 </div>

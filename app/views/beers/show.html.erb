@@ -25,7 +25,7 @@
     <%= form.number_field :score, class: "form-control" %>
     <%= form.submit "Create rating", class: "btn btn-primary" %>
   <% end %>
-
+  <br>
   <div>
     <%= link_to "Edit this beer", edit_beer_path(@beer), class:'btn btn-primary' %>
     <%= button_to "Destroy this beer", @beer, method: :delete, class:'btn btn-danger' if current_user.admin %>
